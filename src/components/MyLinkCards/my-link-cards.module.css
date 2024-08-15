@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  gap: 30px;
+}
+
+.cardsListDiv {
+  margin: 26px;
+  padding: 15px;
+}
+
+.inputFilter {
+  width: 500px;
+  margin-left: 36px;
+  padding: 5px 0;
+  font-size: 18px;
+  border: 1px solid black;
+}
+
+::placeholder {
+  font-size: 18px;
+}
