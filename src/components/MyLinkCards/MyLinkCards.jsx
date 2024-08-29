@@ -1,47 +1,33 @@
-import { Component } from 'react';
+import { useState, useCallback } from 'react';
 import { nanoid } from 'nanoid';
 import styles from './my-link-cards.module.css';
 
 import LinkCardsForm from './LinkCardsForm/LinkCardsForm';
 import LinkCardsList from './LinkCardsList/LinkCardsList';
 
-class MyLinkCards extends Component {
-  state = {
-    linkCards: [],
-    filter: '',
-  };
+import useLocalStorage from 'hooks/useLocalStorage';
 
-  addLinkCard = data => {
-    this.setState(({ linkCards }) => {
-      const newBook = {
+const MyLinkCards = ({}) => {
+  const [linkCards, setLinkCards] = useLocalStorage('my-link-cards', []);
+  const [filter, setFilter] = useState('');
+
+  const addLinkCard = useCallback(data => {
+    setLinkCards(prevLinkCards => {
+      const newLinkCard = {
         id: nanoid(),
         ...data,
       };
-      return {
-        linkCards: [...linkCards, newBook],
-      };
+      return [...prevLinkCards, newLinkCard];
     });
-  };
+  }, []);
 
-  deleteCard = id => {
-    this.setState(({ linkCards }) => {
-      const newLinkCards = linkCards.filter(item => item.id !== id);
+  const deleteCard = useCallback(id => {
+    setLinkCards(prevLinkCards => prevLinkCards.filter(item => item.id !== id));
+  }, []);
 
-      return {
-        linkCards: newLinkCards,
-      };
-    });
-  };
+  const changeFilter = useCallback(({ target }) => setFilter(target.value), []);
 
-  changeFilter = ({ target }) => {
-    this.setState({
-      filter: target.value,
-    });
-  };
-
-  getFilteredCards() {
-    const { filter, linkCards } = this.state;
-
+  const getFilteredCards = () => {
     if (!filter) {
       return linkCards;
     }
@@ -54,27 +40,24 @@ class MyLinkCards extends Component {
       return normalizedTitle.includes(normalizedFilter);
     });
     return filteredCards;
-  }
+  };
 
-  render() {
-    // const { linkCards } = this.state;
-    const { addLinkCard, deleteCard, changeFilter } = this;
-    const linkCards = this.getFilteredCards();
-    return (
-      <div className={styles.wrapper}>
-        <LinkCardsForm onSubmit={addLinkCard} />
-        <div className={styles.cardsListDiv}>
-          <input
-            className={styles.inputFilter}
-            onChange={changeFilter}
-            name="filter"
-            placeholder="Search..."
-          />
-          <LinkCardsList items={linkCards} deleteCard={deleteCard} />
-        </div>
+  const items = getFilteredCards();
+
+  return (
+    <div className={styles.wrapper}>
+      <LinkCardsForm onSubmit={addLinkCard} />
+      <div className={styles.cardsListDiv}>
+        <input
+          className={styles.inputFilter}
+          onChange={changeFilter}
+          name="filter"
+          placeholder="Search..."
+        />
+        <LinkCardsList items={items} deleteCard={deleteCard} />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default MyLinkCards;

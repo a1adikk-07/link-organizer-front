@@ -27,6 +27,7 @@
 }
 
 .addButton {
+  cursor: pointer;
   width: 530px;
   font-size: 20px;
   padding: 8px;
@@ -34,4 +35,8 @@
   left: 0;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+
+.addButton:hover {
+  background-color: #d9d9d9;
 }
