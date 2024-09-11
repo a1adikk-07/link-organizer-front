@@ -1,4 +1,4 @@
-import styles from './add-card-page.module.css';
+// import styles from './add-card-page.module.css';
 import MyLinkCards from 'components/MyLinkCards/MyLinkCards';
 
 const AddCardPage = () => {
