@@ -24,22 +24,42 @@ const FavoriteCardsPage = () => {
         </div>
         <ul className={styles.cardsList}>
           <li>
-            <a href={oneLink} target="_blank" className={styles.link}>
+            <a
+              href={oneLink}
+              target="_blank"
+              rel="noreferrer noopener"
+              className={styles.link}
+            >
               {firstName}
             </a>
           </li>
           <li>
-            <a href={twoLink} target="_blank" className={styles.link}>
+            <a
+              href={twoLink}
+              target="_blank"
+              rel="noreferrer noopener"
+              className={styles.link}
+            >
               {secondName}
             </a>
           </li>
           <li>
-            <a href={threeLink} target="_blank" className={styles.link}>
+            <a
+              href={threeLink}
+              target="_blank"
+              rel="noreferrer noopener"
+              className={styles.link}
+            >
               {thirdName}
             </a>
           </li>
           <li>
-            <a href={fourLink} target="_blank" className={styles.link}>
+            <a
+              href={fourLink}
+              target="_blank"
+              rel="noreferrer noopener"
+              className={styles.link}
+            >
               {fourthName}
             </a>
           </li>
