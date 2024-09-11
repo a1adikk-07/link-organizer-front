@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { lazy } from 'react';
 
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 // Pages
