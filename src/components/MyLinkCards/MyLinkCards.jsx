@@ -1,52 +1,37 @@
-import { useState, useCallback } from 'react';
-import { nanoid } from 'nanoid';
+import { useSelector, useDispatch } from 'react-redux';
 import styles from './my-link-cards.module.css';
+
+import { getFilteredCards } from '../../redux/linkCards/cards-selectors';
 
 import LinkCardsForm from './LinkCardsForm/LinkCardsForm';
 import LinkCardsList from './LinkCardsList/LinkCardsList';
 
-import useLocalStorage from 'hooks/useLocalStorage';
+import {
+  addLinkCard,
+  deleteLinkCard,
+} from '../../redux/linkCards/link-cards-slice';
 
-const MyLinkCards = ({}) => {
-  const [linkCards, setLinkCards] = useLocalStorage('my-link-cards', []);
-  const [filter, setFilter] = useState('');
+import { setFilter } from '../../redux/filter/filter-slice';
 
-  const addLinkCard = useCallback(data => {
-    setLinkCards(prevLinkCards => {
-      const newLinkCard = {
-        id: nanoid(),
-        ...data,
-      };
-      return [...prevLinkCards, newLinkCard];
-    });
-  }, []);
+const MyLinkCards = () => {
+  const linkCards = useSelector(getFilteredCards);
 
-  const deleteCard = useCallback(id => {
-    setLinkCards(prevLinkCards => prevLinkCards.filter(item => item.id !== id));
-  }, []);
+  const dispatch = useDispatch();
 
-  const changeFilter = useCallback(({ target }) => setFilter(target.value), []);
-
-  const getFilteredCards = () => {
-    if (!filter) {
-      return linkCards;
-    }
-
-    const normalizedFilter = filter.toLowerCase();
-
-    const filteredCards = linkCards.filter(({ title }) => {
-      const normalizedTitle = title.toLowerCase();
-
-      return normalizedTitle.includes(normalizedFilter);
-    });
-    return filteredCards;
+  const onAddLinkCard = data => {
+    const action = addLinkCard(data);
+    dispatch(action);
   };
 
-  const items = getFilteredCards();
+  const onDeleteCard = id => {
+    dispatch(deleteLinkCard(id));
+  };
+
+  const changeFilter = ({ target }) => dispatch(setFilter(target.value));
 
   return (
     <div className={styles.wrapper}>
-      <LinkCardsForm onSubmit={addLinkCard} />
+      <LinkCardsForm onSubmit={onAddLinkCard} />
       <div className={styles.cardsListDiv}>
         <input
           className={styles.inputFilter}
@@ -54,7 +39,9 @@ const MyLinkCards = ({}) => {
           name="filter"
           placeholder="Search..."
         />
-        <LinkCardsList items={items} deleteCard={deleteCard} />
+        <div className={styles.listForCards}>
+          <LinkCardsList items={linkCards} deleteCard={onDeleteCard} />
+        </div>
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
-import MyLinkCards from 'components/MyLinkCards/MyLinkCards';
+import AppRoutes from './AppRoutes.js';
 
 function App() {
   return (
-    <div>
-      <MyLinkCards />
+    <div className="App">
+      <AppRoutes />
     </div>
   );
 }

@@ -1,0 +1,21 @@
+.menu {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 38px;
+}
+
+.linkPage {
+  padding: 10px 15px;
+  font-size: 20px;
+  font-weight: 580;
+  color: #0a0a0a;
+  text-decoration: none;
+}
+
+.linkPage:global(.active) {
+  color: #292929;
+  font-weight: 750;
+  border-bottom: 2px solid #292929;
+}

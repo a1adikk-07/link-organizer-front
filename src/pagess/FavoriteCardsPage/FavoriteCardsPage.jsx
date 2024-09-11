@@ -1,7 +1,11 @@
-import styles from './link-cards-list.module.css';
+import styles from './favorite-cards-page.module.css';
+import { useSelector } from 'react-redux';
+import { getFavoriteLinkCards } from '../../redux/linkCards/cards-selectors';
 
-const LinkCardsList = ({ items, deleteCard }) => {
-  const elements = items.map(
+const FavoriteCardsPage = () => {
+  const favoriteLinkCards = useSelector(getFavoriteLinkCards);
+
+  const elements = favoriteLinkCards.map(
     ({
       id,
       title,
@@ -38,14 +42,6 @@ const LinkCardsList = ({ items, deleteCard }) => {
             <a href={fourLink} target="_blank" className={styles.link}>
               {fourthName}
             </a>
-            <div className={styles.cardsDecor}></div>
-            <button
-              type="button"
-              className={styles.deleteButton}
-              onClick={() => deleteCard(id)}
-            >
-              Delete
-            </button>
           </li>
         </ul>
       </li>
@@ -58,4 +54,4 @@ const LinkCardsList = ({ items, deleteCard }) => {
   );
 };
 
-export default LinkCardsList;
+export default FavoriteCardsPage;

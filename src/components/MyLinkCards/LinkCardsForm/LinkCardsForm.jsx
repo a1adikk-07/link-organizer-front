@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { nanoid } from 'nanoid';
 
 import useForm from 'hooks/useForm';
@@ -15,13 +15,32 @@ const INITIAL_STATE = {
   threeLink: '',
   fourthName: '',
   fourLink: '',
+  favorite: false,
 };
 
 const LinkCardsForm = ({ onSubmit }) => {
-  const { state, handleChange, handleSubmit } = useForm(
-    INITIAL_STATE,
-    onSubmit
-  );
+  const [state, setState] = useState({ ...INITIAL_STATE });
+
+  const handleChange = ({ target }) => {
+    const { name, value, type, checked } = target;
+    const newValue = type === 'checkbox' ? checked : value;
+
+    setState({
+      ...state,
+      [name]: newValue,
+    });
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    onSubmit({ ...state });
+    reset();
+  };
+
+  const reset = () => {
+    setState({ ...INITIAL_STATE });
+  };
+
   const linkCardsTitle = useMemo(() => nanoid(), []);
   const firstLinkName = useMemo(() => nanoid(), []);
   const firstLink = useMemo(() => nanoid(), []);
@@ -31,6 +50,7 @@ const LinkCardsForm = ({ onSubmit }) => {
   const thirdLink = useMemo(() => nanoid(), []);
   const fourthLinkName = useMemo(() => nanoid(), []);
   const fourthLink = useMemo(() => nanoid(), []);
+  const cardsFavoriteId = useMemo(() => nanoid(), []);
 
   const {
     title,
@@ -42,6 +62,7 @@ const LinkCardsForm = ({ onSubmit }) => {
     threeLink,
     fourthName,
     fourLink,
+    favorite,
   } = state;
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
@@ -169,6 +190,19 @@ const LinkCardsForm = ({ onSubmit }) => {
             id={fourthLink}
             type="text"
             placeholder="Enter link..."
+          />
+        </div>
+        <div>
+          <label className={styles.checkboxText} htmlFor={cardsFavoriteId}>
+            Favorite
+          </label>
+          <input
+            className={styles.checkboxBtn}
+            type="checkbox"
+            checked={favorite}
+            name="favorite"
+            onChange={handleChange}
+            id={cardsFavoriteId}
           />
         </div>
       </div>

@@ -1,5 +1,5 @@
 .form {
-  margin: 26px;
+  /* margin: 26px; */
   padding: 15px;
   border: 2px solid black;
   border-radius: 20px;
@@ -24,6 +24,16 @@
 
 ::placeholder {
   font-size: 18px;
+}
+
+.checkboxText {
+  font-size: 22px;
+  margin-right: 5px;
+}
+
+.checkboxBtn {
+  width: 14px;
+  height: 14px;
 }
 
 .addButton {
