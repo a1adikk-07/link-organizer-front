@@ -1,10 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { nanoid } from 'nanoid';
 
+const initialState = {
+  items: [],
+  isLoading: false,
+  error: null,
+};
+
 const linkCardsSlice = createSlice({
-  name: 'linkCards',
-  initialState: [],
+  name: 'link-cards',
+  initialState,
   reducers: {
+    fetchLinkCardsLoading: state => {
+      state.isLoading = true;
+    },
+    fetchLinkCardsSuccess: (state, { payload }) => {
+      state.isLoading = false;
+      state.items = payload;
+    },
+    fetchLinkCardsError: (state, { payload }) => {
+      state.isLoading = false;
+      state.error = payload;
+    },
     addLinkCard: {
       reducer: (state, { payload }) => {
         state.push(payload);
@@ -23,6 +40,12 @@ const linkCardsSlice = createSlice({
   },
 });
 
-export const { addLinkCard, deleteLinkCard } = linkCardsSlice.actions;
+export const {
+  addLinkCard,
+  deleteLinkCard,
+  fetchLinkCardsLoading,
+  fetchLinkCardsSuccess,
+  fetchLinkCardsError,
+} = linkCardsSlice.actions;
 
 export default linkCardsSlice.reducer;

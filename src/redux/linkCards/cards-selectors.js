@@ -1,10 +1,10 @@
-export const getAllLinkCards = store => store.linkCards;
+export const selectAllLinkCards = store => store.linkCards;
 
-export const getFavoriteLinkCards = store => {
+export const selectFavoriteLinkCards = store => {
   return store.linkCards.filter(({ favorite }) => favorite);
 };
 
-export const getFilteredCards = store => {
+export const selectFilteredCards = store => {
   const { linkCards, filter } = store;
   if (!filter) {
     return linkCards;

@@ -1,9 +1,9 @@
 import styles from './favorite-cards-page.module.css';
 import { useSelector } from 'react-redux';
-import { getFavoriteLinkCards } from '../../redux/linkCards/cards-selectors';
+import { selectFavoriteLinkCards } from '../../redux/linkCards/cards-selectors';
 
 const FavoriteCardsPage = () => {
-  const favoriteLinkCards = useSelector(getFavoriteLinkCards);
+  const favoriteLinkCards = useSelector(selectFavoriteLinkCards);
 
   const elements = favoriteLinkCards.map(
     ({
