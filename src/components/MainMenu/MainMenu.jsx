@@ -10,8 +10,8 @@ const MainMenu = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/form" className={styles.linkPage}>
-          +Add
+        <NavLink to="/all" className={styles.linkPage}>
+          All cards
         </NavLink>
       </li>
       <li>

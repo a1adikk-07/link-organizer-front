@@ -1,0 +1,8 @@
+.inputFilter {
+  min-width: 380px;
+  margin-left: 40px;
+  padding: 5px 0;
+  font-size: 18px;
+  border: 1px solid black;
+  box-shadow: 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+}

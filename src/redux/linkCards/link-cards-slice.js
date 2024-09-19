@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { nanoid } from 'nanoid';
+
+import {
+  fetchLinkCards,
+  addLinkCard,
+  deleteLinkCard,
+} from './link-cards-operations';
 
 const initialState = {
   items: [],
@@ -7,45 +12,39 @@ const initialState = {
   error: null,
 };
 
+const pending = state => {
+  state.isLoading = true;
+  state.error = null;
+};
+
+const rejected = (state, { payload }) => {
+  state.isLoading = false;
+  state.error = payload;
+};
+
 const linkCardsSlice = createSlice({
-  name: 'link-cards',
+  name: 'linkCards',
   initialState,
-  reducers: {
-    fetchLinkCardsLoading: state => {
-      state.isLoading = true;
-    },
-    fetchLinkCardsSuccess: (state, { payload }) => {
-      state.isLoading = false;
-      state.items = payload;
-    },
-    fetchLinkCardsError: (state, { payload }) => {
-      state.isLoading = false;
-      state.error = payload;
-    },
-    addLinkCard: {
-      reducer: (state, { payload }) => {
-        state.push(payload);
-      },
-      prepare: data => {
-        return {
-          payload: {
-            id: nanoid(),
-            ...data,
-          },
-        };
-      },
-    },
-    deleteLinkCard: (state, { payload }) =>
-      state.filter(item => item.id !== payload),
+  extraReducers: builder => {
+    builder
+      .addCase(fetchLinkCards.pending, pending)
+      .addCase(fetchLinkCards.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.items = payload;
+      })
+      .addCase(fetchLinkCards.rejected, rejected)
+      .addCase(addLinkCard.pending, pending)
+      .addCase(addLinkCard.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.items.unshift(payload);
+      })
+      .addCase(deleteLinkCard.pending, pending)
+      .addCase(deleteLinkCard.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.items = state.items.filter(({ id }) => id !== payload);
+      })
+      .addCase(deleteLinkCard.rejected, rejected);
   },
 });
-
-export const {
-  addLinkCard,
-  deleteLinkCard,
-  fetchLinkCardsLoading,
-  fetchLinkCardsSuccess,
-  fetchLinkCardsError,
-} = linkCardsSlice.actions;
 
 export default linkCardsSlice.reducer;

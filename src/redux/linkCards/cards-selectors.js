@@ -1,21 +1,43 @@
-export const selectAllLinkCards = store => store.linkCards;
+import { createSelector } from '@reduxjs/toolkit';
 
-export const selectFavoriteLinkCards = store => {
-  return store.linkCards.filter(({ favorite }) => favorite);
-};
+import { selectFilter } from '../../redux/filter/filter-selectors';
 
-export const selectFilteredCards = store => {
-  const { linkCards, filter } = store;
-  if (!filter) {
-    return linkCards;
+export const selectAllLinkCards = store => store.linkCards.items;
+
+export const selectFavoriteLinkCards = createSelector(
+  [selectAllLinkCards],
+  linkCards => linkCards.filter(({ favorite }) => favorite)
+);
+
+export const selectLinkCards = store => store.linkCards;
+
+export const selectFilteredCards = createSelector(
+  [selectAllLinkCards, selectFilter],
+  (linkCards, filter) => {
+    if (!filter) {
+      return linkCards;
+    }
+
+    const normalizedFilter = filter.toLocaleLowerCase();
+    return linkCards.filter(({ title }) =>
+      title.toLocaleLowerCase().includes(normalizedFilter)
+    );
   }
+);
 
-  const normalizedFilter = filter.toLowerCase();
+// export const selectFilteredCards = store => {
+//   const { linkCards, filter } = store;
+//   const { items } = linkCards;
+//   if (!filter) {
+//     return items;
+//   }
 
-  const filteredCards = linkCards.filter(({ title }) => {
-    const normalizedTitle = title.toLowerCase();
+//   const normalizedFilter = filter.toLowerCase();
 
-    return normalizedTitle.includes(normalizedFilter);
-  });
-  return filteredCards;
-};
+//   const filteredLinkCards = linkCards.items.filter(({ title }) => {
+//     const normalizedTitle = title.toLowerCase();
+
+//     return normalizedTitle.includes(normalizedFilter);
+//   });
+//   return filteredLinkCards;
+// };

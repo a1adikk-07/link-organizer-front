@@ -11,7 +11,7 @@
 
 .listForCards {
   overflow-y: auto;
-  max-height: 84vh;
+  max-height: 75vh;
 }
 
 .listForCards::-webkit-scrollbar {
@@ -37,15 +37,6 @@
 /* Define the button style when being hovered over */
 .listForCards::-webkit-scrollbar-button:hover {
   background-color: #5660b7;
-}
-
-.inputFilter {
-  min-width: 380px;
-  margin-left: 40px;
-  padding: 5px 0;
-  font-size: 18px;
-  border: 1px solid black;
-  box-shadow: 0 8px 8px 1px rgba(0, 0, 0, 0.5);
 }
 
 ::placeholder {

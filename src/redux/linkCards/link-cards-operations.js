@@ -1,20 +1,54 @@
+import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import * as linkCardsApi from '../../api/link-cards-api';
 
-import {
-  fetchLinkCardsLoading,
-  fetchLinkCardsSuccess,
-  fetchLinkCardsError,
-} from './link-cards-slice';
-
-export const fetchLinkCards = () => {
-  const func = async dispatch => {
+export const fetchLinkCards = createAsyncThunk(
+  'linkCards/fetchAll',
+  async (_, thunkAPI) => {
     try {
-      dispatch(fetchLinkCardsLoading());
-      const data = await linkCardsApi.requestCards();
-      dispatch(fetchLinkCardsSuccess(data));
+      const data = await linkCardsApi.requestFetchCards();
+      return data;
     } catch (error) {
-      dispatch(fetchLinkCardsError(error.message));
+      return thunkAPI.rejectWithValue(error.message);
     }
-  };
-  return func;
-};
+  }
+);
+
+export const addLinkCard = createAsyncThunk(
+  'LinkCards/add',
+  async (body, { rejectWithValue }) => {
+    try {
+      const data = await linkCardsApi.requestAddLinkCard(body);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+  {
+    condition: ({ title }, { getState }) => {
+      const { linkCards } = getState();
+      const normalizedTitle = title.toLowerCase();
+      const dublicate = linkCards.items.find(item => {
+        const normalizedCurrentTitle = item.title.toLowerCase();
+
+        return normalizedTitle === normalizedCurrentTitle;
+      });
+      if (dublicate) {
+        alert(`Book with ${title} already in list`);
+        return false;
+      }
+    },
+  }
+);
+
+export const deleteLinkCard = createAsyncThunk(
+  'linkCards/delete',
+  async (id, { rejectWithValue }) => {
+    try {
+      await linkCardsApi.requestDeleteLinkCard(id);
+      return id;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
