@@ -1,29 +1,13 @@
 {
   "files": {
-    "main.css": "/link-organizer-front/static/css/main.fd0d530b.css",
-    "main.js": "/link-organizer-front/static/js/main.0f084ebf.js",
-    "static/css/634.0b9f17bf.chunk.css": "/link-organizer-front/static/css/634.0b9f17bf.chunk.css",
-    "static/js/634.69c7149b.chunk.js": "/link-organizer-front/static/js/634.69c7149b.chunk.js",
-    "static/css/665.0dc619fd.chunk.css": "/link-organizer-front/static/css/665.0dc619fd.chunk.css",
-    "static/js/665.1977a861.chunk.js": "/link-organizer-front/static/js/665.1977a861.chunk.js",
-    "static/css/386.4717be23.chunk.css": "/link-organizer-front/static/css/386.4717be23.chunk.css",
-    "static/js/386.683feb6d.chunk.js": "/link-organizer-front/static/js/386.683feb6d.chunk.js",
-    "static/css/857.b685d871.chunk.css": "/link-organizer-front/static/css/857.b685d871.chunk.css",
-    "static/js/857.80a7f1b7.chunk.js": "/link-organizer-front/static/js/857.80a7f1b7.chunk.js",
+    "main.css": "/link-organizer-front/static/css/main.6d3a6cfe.css",
+    "main.js": "/link-organizer-front/static/js/main.2dbc33f9.js",
     "index.html": "/link-organizer-front/index.html",
-    "main.fd0d530b.css.map": "/link-organizer-front/static/css/main.fd0d530b.css.map",
-    "main.0f084ebf.js.map": "/link-organizer-front/static/js/main.0f084ebf.js.map",
-    "634.0b9f17bf.chunk.css.map": "/link-organizer-front/static/css/634.0b9f17bf.chunk.css.map",
-    "634.69c7149b.chunk.js.map": "/link-organizer-front/static/js/634.69c7149b.chunk.js.map",
-    "665.0dc619fd.chunk.css.map": "/link-organizer-front/static/css/665.0dc619fd.chunk.css.map",
-    "665.1977a861.chunk.js.map": "/link-organizer-front/static/js/665.1977a861.chunk.js.map",
-    "386.4717be23.chunk.css.map": "/link-organizer-front/static/css/386.4717be23.chunk.css.map",
-    "386.683feb6d.chunk.js.map": "/link-organizer-front/static/js/386.683feb6d.chunk.js.map",
-    "857.b685d871.chunk.css.map": "/link-organizer-front/static/css/857.b685d871.chunk.css.map",
-    "857.80a7f1b7.chunk.js.map": "/link-organizer-front/static/js/857.80a7f1b7.chunk.js.map"
+    "main.6d3a6cfe.css.map": "/link-organizer-front/static/css/main.6d3a6cfe.css.map",
+    "main.2dbc33f9.js.map": "/link-organizer-front/static/js/main.2dbc33f9.js.map"
   },
   "entrypoints": [
-    "static/css/main.fd0d530b.css",
-    "static/js/main.0f084ebf.js"
+    "static/css/main.6d3a6cfe.css",
+    "static/js/main.2dbc33f9.js"
   ]
 }
