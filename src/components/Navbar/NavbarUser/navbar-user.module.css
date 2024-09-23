@@ -1,0 +1,28 @@
+.userNavbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.usersName {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 22px;
+  color: #3b3b3b;
+}
+
+.logoutButton {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  text-decoration: none;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  background-color: #526efb;
+  color: #fff;
+  font-size: 18px;
+}
+
+.logoutButton:hover {
+  background-color: #758cfc;
+}

@@ -11,7 +11,7 @@
 
 .listForCards {
   overflow-y: auto;
-  max-height: 75vh;
+  max-height: 79.5vh;
 }
 
 .listForCards::-webkit-scrollbar {

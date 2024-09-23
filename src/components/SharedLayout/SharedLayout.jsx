@@ -1,12 +1,14 @@
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
-import MainMenu from 'components/MainMenu/MainMenu';
+import Navbar from 'components/Navbar/Navbar';
+
+import styles from './loading-animation.module.css';
 
 const SharedLayout = () => {
   return (
     <>
-      <MainMenu />
-      <Suspense fallback={<p>Loading...</p>}>
+      <Navbar />
+      <Suspense fallback={<div className={styles.loader}></div>}>
         <Outlet />
       </Suspense>
     </>

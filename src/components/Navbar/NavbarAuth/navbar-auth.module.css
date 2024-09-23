@@ -1,0 +1,32 @@
+.navbarAuth {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.link {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  text-decoration: none;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  background-color: #526efb;
+  color: #fff;
+  font-size: 18px;
+}
+
+.link:hover {
+  background-color: #758cfc;
+}
+
+.link:global(.active) {
+  background-color: #263ba2;
+  color: #ebe3e3;
+  font-weight: bold;
+}
+
+.separation {
+  font-size: 30px;
+  font-weight: 800;
+}

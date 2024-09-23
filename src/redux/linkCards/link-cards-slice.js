@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { pending, rejected } from 'shared/functions/redux';
+
 import {
   fetchLinkCards,
   addLinkCard,
@@ -10,16 +12,6 @@ const initialState = {
   items: [],
   isLoading: false,
   error: null,
-};
-
-const pending = state => {
-  state.isLoading = true;
-  state.error = null;
-};
-
-const rejected = (state, { payload }) => {
-  state.isLoading = false;
-  state.error = payload;
 };
 
 const linkCardsSlice = createSlice({
