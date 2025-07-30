@@ -15,6 +15,8 @@ import LinkCardsList from './LinkCardsList/LinkCardsList';
 
 import Filter from 'components/Filter/Filter';
 
+import AllLinkCards from 'components/AllLinkCards/AllLinkCards';
+
 import { setFilter } from '../../redux/filter/filter-slice';
 
 // import { selectFilter } from '../../redux/filter/filter-selectors';
@@ -51,7 +53,7 @@ const MyLinkCards = () => {
         <div className={styles.listForCards}>
           {error && <p>{error}</p>}
           {Boolean(items.length) && (
-            <LinkCardsList items={items} deleteCard={onDeleteCard} />
+            <AllLinkCards items={items} deleteCard={onDeleteCard} />
           )}
         </div>
       </div>

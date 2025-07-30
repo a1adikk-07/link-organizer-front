@@ -25,7 +25,7 @@ const RegisterPage = () => {
   };
 
   if (isLogin) {
-    return <Navigate to="/all" />;
+    return <Navigate to="/cards" />;
   }
 
   return (

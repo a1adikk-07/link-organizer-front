@@ -1,0 +1,38 @@
+.inputDiv {
+  display: block;
+  width: 200px;
+}
+
+.label {
+  color: #373737;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.input {
+  margin-bottom: 12px;
+
+  font-size: 20px;
+  padding: 4px;
+  border: 1px solid #716ff5;
+  border-radius: 8px;
+}
+
+::placeholder {
+  font-size: 20px;
+}
+
+.registerButton {
+  font-size: 20px;
+  width: 100px;
+  height: 35px;
+  background-color: #716ff5;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+}
+
+.registerButton:hover {
+  border: 1px solid #716ff5;
+  background-color: #fff;
+}

@@ -4,9 +4,9 @@ import filterReducer from './filter/filter-slice';
 import authReducer from './auth/auth-slice';
 
 const rootReducer = combineReducers({
+  auth: authReducer,
   linkCards: linkCardsReducer,
   filter: filterReducer,
-  auth: authReducer,
 });
 
 export default rootReducer;

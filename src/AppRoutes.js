@@ -4,6 +4,7 @@ import { lazy } from 'react';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 // Pages
 const RegisterPage = lazy(() => import('pagess/RegisterPage/RegisterPage'));
+const LoginPage = lazy(() => import('pagess/LoginPage/LoginPage'));
 
 const HomePage = lazy(() => import('pagess/HomePage/HomePage'));
 const AddCardPage = lazy(() => import('pagess/AddCardPage/AddCardPage'));
@@ -19,7 +20,8 @@ const AppRoutes = () => {
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<HomePage />} />
         <Route path="/signup" element={<RegisterPage />} />
-        <Route path="all" element={<AddCardPage />} />
+        <Route path="/signin" element={<LoginPage />} />
+        <Route path="cards" element={<AddCardPage />} />
         <Route path="favorite" element={<FavoriteCardsPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>

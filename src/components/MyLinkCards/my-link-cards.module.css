@@ -1,13 +1,13 @@
 .wrapper {
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   gap: 80px;
 }
 
-.cardsListDiv {
-  /* margin: 26px; */
+/* .cardsListDiv {
+  // margin: 26px; 
   max-width: 450px;
-}
+} */
 
 .listForCards {
   overflow-y: auto;

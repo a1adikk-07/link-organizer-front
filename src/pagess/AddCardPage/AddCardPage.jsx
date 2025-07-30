@@ -1,10 +1,9 @@
 // import styles from './add-card-page.module.css';
-import AllLinkCards from 'components/AllLinkCards/AllLinkCards';
-
+import MyLinkCards from "components/MyLinkCards/MyLinkCards";
 const AddCardPage = () => {
   return (
     <div>
-      <AllLinkCards />
+      <MyLinkCards />
     </div>
   );
 };

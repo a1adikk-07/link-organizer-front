@@ -1,11 +1,9 @@
-import MyLinkCards from 'components/MyLinkCards/MyLinkCards';
-
 import styles from './home-page.module.css';
 
 const HomePage = () => {
   return (
     <div className={styles.HomePageDiv}>
-      <MyLinkCards />
+      <h1>Welcome to your link organizer!!!</h1>
     </div>
   );
 };
