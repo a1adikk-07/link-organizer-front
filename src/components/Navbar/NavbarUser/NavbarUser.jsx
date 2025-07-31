@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
 
-// import { selectUser } from '../../../redux/auth/auth-selectors';
 import { selectUser } from '../../../redux/auth/auth-selectors';
 
 import styles from './navbar-user.module.css';

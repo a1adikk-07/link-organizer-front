@@ -11,7 +11,6 @@ import {
   deleteLinkCard,
 } from '../../redux/linkCards/link-cards-operations';
 import LinkCardsForm from './LinkCardsForm/LinkCardsForm';
-import LinkCardsList from './LinkCardsList/LinkCardsList';
 
 import Filter from 'components/Filter/Filter';
 

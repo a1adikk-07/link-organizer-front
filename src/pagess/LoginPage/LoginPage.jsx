@@ -28,13 +28,15 @@ const LoginPage = () => {
     return <Navigate to="/cards" />;
     }
     
-    return (
+  return (
+      <main>
         <div className={styles.registration}>
             <h1>Log in page</h1>  
             {authLoading && <p>...Register in progress</p>}
             <LoginForm onSubmit={handleSignin} />
             {authError && <p style={{ color: 'red' }}>{authError}</p>}
-        </div>
+      </div>
+      </main>
     )
 }
 

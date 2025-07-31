@@ -31,7 +31,7 @@ const RegisterPage = () => {
   return (
     <main>
       <div className={styles.registration}>
-        <h1>Sign Up</h1>
+        <h1>Sign Up page</h1>
         {authLoading && <p>...Register in progress</p>}
         <RegisterForm onSubmit={handleSignup} />
         {authError && <p style={{ color: 'red' }}>{authError}</p>}
