@@ -16,7 +16,6 @@ const LoginPage = () => {
 
   const authLoading = useSelector(selectAuthIsLoading);
   const authError = useSelector(selectAuthError);
-  const isLogin = useSelector(selectAuthIsLogin);
 
   const dispatch = useDispatch();
 
@@ -24,10 +23,6 @@ const LoginPage = () => {
     dispatch(signin(data));
   };
 
-  if (isLogin) {
-    return <Navigate to="/cards" />;
-    }
-    
   return (
       <main>
         <div className={styles.registration}>

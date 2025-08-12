@@ -3,7 +3,7 @@ import styles from './link-cards-list.module.css';
 const LinkCardsList = ({ items, deleteCard }) => {
   const elements = items.map(
     ({
-      id,
+      _id,
       title,
       firstName,
       oneLink,
@@ -14,7 +14,7 @@ const LinkCardsList = ({ items, deleteCard }) => {
       fourthName,
       fourLink,
     }) => (
-      <li key={id} className={styles.card}>
+      <li key={_id} className={styles.card}>
         <div className={styles.cardsTitleDiv}>
           <h3 className={styles.cardsTitle}>{title}</h3>
         </div>
@@ -62,7 +62,7 @@ const LinkCardsList = ({ items, deleteCard }) => {
             <button
               type="button"
               className={styles.deleteButton}
-              onClick={() => deleteCard(id)}
+              onClick={() => deleteCard(_id)}
             >
               Delete
             </button>

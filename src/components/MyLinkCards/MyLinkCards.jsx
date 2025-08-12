@@ -18,8 +18,6 @@ import AllLinkCards from 'components/AllLinkCards/AllLinkCards';
 
 import { setFilter } from '../../redux/filter/filter-slice';
 
-// import { selectFilter } from '../../redux/filter/filter-selectors';
-
 import styles from './my-link-cards.module.css';
 
 const MyLinkCards = () => {

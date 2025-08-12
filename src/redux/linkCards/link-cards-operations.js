@@ -4,12 +4,12 @@ import * as linkCardsApi from '../../api/link-cards-api';
 
 export const fetchLinkCards = createAsyncThunk(
   'linkCards/fetchAll',
-  async (_, thunkAPI) => {
+  async (_, {rejectWithValue}) => {
     try {
       const data = await linkCardsApi.requestFetchCards();
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return rejectWithValue(error.message);
     }
   }
 );

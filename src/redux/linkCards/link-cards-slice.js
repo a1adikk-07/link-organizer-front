@@ -28,12 +28,12 @@ const linkCardsSlice = createSlice({
       .addCase(addLinkCard.pending, pending)
       .addCase(addLinkCard.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.items.unshift(payload);
+        state.items.push(payload);
       })
       .addCase(deleteLinkCard.pending, pending)
       .addCase(deleteLinkCard.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.items = state.items.filter(({ id }) => id !== payload);
+        state.items = state.items.filter(({ _id }) => _id !== payload);
       })
       .addCase(deleteLinkCard.rejected, rejected);
   },

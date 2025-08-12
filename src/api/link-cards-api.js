@@ -1,20 +1,16 @@
-import axios from 'axios';
-
-const linkCardsInstance = axios.create({
-  baseURL: 'https://66e35eb4494df9a478e50a4f.mockapi.io/api/linkCards',
-});
+import instance from "./auth-api";
 
 export const requestFetchCards = async () => {
-  const { data } = await linkCardsInstance.get('/');
+  const { data } = await instance.get('/LinkCards/');
   return data;
 };
 
 export const requestAddLinkCard = async body => {
-  const { data } = await linkCardsInstance.post('/', body);
+  const { data } = await instance.post('/LinkCards/', body);
   return data;
 };
 
 export const requestDeleteLinkCard = async id => {
-  const { data } = await linkCardsInstance.delete(`/${id}`);
+  const { data } = await instance.delete(`/LinkCards/${id}`);
   return data;
 };

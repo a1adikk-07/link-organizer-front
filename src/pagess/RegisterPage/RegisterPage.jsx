@@ -16,17 +16,12 @@ import styles from './pegister-page.module.css';
 const RegisterPage = () => {
   const authLoading = useSelector(selectAuthIsLoading);
   const authError = useSelector(selectAuthError);
-  const isLogin = useSelector(selectAuthIsLogin);
 
   const dispatch = useDispatch();
 
   const handleSignup = data => {
     dispatch(signup(data));
   };
-
-  if (isLogin) {
-    return <Navigate to="/cards" />;
-  }
 
   return (
     <main>
