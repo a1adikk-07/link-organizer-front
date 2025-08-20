@@ -58,3 +58,5 @@ export const logout = createAsyncThunk(
     }
   }
 );
+
+console.log("hello");
