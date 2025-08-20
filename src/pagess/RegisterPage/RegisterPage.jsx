@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Navigate } from 'react-router-dom';
+// import { Navigate } from 'react-router-dom';
 
 import {
   selectAuthIsLoading,
   selectAuthError,
-  selectAuthIsLogin,
+  // selectAuthIsLogin,
 } from '../../redux/auth/auth-selectors';
 
 import { signup } from '../../redux/auth/auth-operations';
